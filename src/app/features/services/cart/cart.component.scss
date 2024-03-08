@@ -18,3 +18,10 @@
     cursor: pointer;
   }
 }
+
+#contactNumber {
+  padding-left: 40px;
+  & + .input-group-text{
+    line-height: 1.6;
+  }
+}

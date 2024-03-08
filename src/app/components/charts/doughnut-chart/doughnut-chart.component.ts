@@ -1,4 +1,4 @@
-import { Component, Input, SimpleChanges } from '@angular/core';
+import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { EChartsOption } from 'echarts';
 import { NgxEchartsDirective } from 'ngx-echarts';
 import { ECHART } from '../../../models/chart';
@@ -13,7 +13,7 @@ import * as echarts from 'echarts';
   templateUrl: './doughnut-chart.component.html',
   styleUrl: './doughnut-chart.component.scss'
 })
-export class DoughnutChartComponent {
+export class DoughnutChartComponent implements OnInit {
 
   @Input() label: string = "";
   @Input() text: string = "";
@@ -21,7 +21,7 @@ export class DoughnutChartComponent {
   @Input() data: ECHART[] = [];
   @Input() colors: any[] = [];
 
-  chartOption: EChartsOption = {};
+  chartOption!: EChartsOption;
 
   constructor(
     private utilService: UtilService
@@ -47,6 +47,10 @@ export class DoughnutChartComponent {
 
   }
 
+  charData() {
+    return this.data;
+  }
+
   ngOnChanges(change: SimpleChanges) {
     if(change['data'].currentValue) {
 
@@ -63,7 +67,7 @@ export class DoughnutChartComponent {
               show: false,
             },
             color: this.colors,
-            data: this.data
+            data: this.charData()
           }
         ],
 

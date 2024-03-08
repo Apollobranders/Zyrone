@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AreaChartComponent } from '../../components/charts/area-chart/area-chart.component';
 import { NgxEchartsDirective, provideEcharts } from 'ngx-echarts';
 import { DoughnutChartComponent } from '../../components/charts/doughnut-chart/doughnut-chart.component';
@@ -22,7 +22,7 @@ import { RouterLink } from '@angular/router';
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
 })
-export class DashboardComponent {
+export class DashboardComponent implements OnInit {
 
   colors: any[] = ['#F85529', '#FF8C1A', '#FFD965', '#13DEB9'];
   state_of_charges_data: ECHART[] = [
@@ -40,6 +40,8 @@ export class DashboardComponent {
   daily_alerts_data: any[] = [
     [new Date(new Date().getTime() - 11 * 60 * 60 * 1000), 400],
     [new Date().getTime(), 300]
-  ]
+  ];
+
+  ngOnInit() {}
 
 }

@@ -1,16 +1,19 @@
-<div class="d-flex justify-content-center align-items-center">
-  <div echarts [options]="chartOption" class="doughnut-chart" (chartInit)="chartInit()" style="height: 172px; width: 172px;"></div>
-  <div class="graph-middle-content position-absolute">
-    @if(icon == 'refresh') {
-      <span class="isax {{icon}}">
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M18.3337 10.0003C18.3337 14.6003 14.6003 18.3337 10.0003 18.3337C5.40033 18.3337 2.59199 13.7003 2.59199 13.7003M2.59199 13.7003H6.35866M2.59199 13.7003V17.867M1.66699 10.0003C1.66699 5.40033 5.36699 1.66699 10.0003 1.66699C15.5587 1.66699 18.3337 6.30033 18.3337 6.30033M18.3337 6.30033V2.13366M18.3337 6.30033H14.6337" stroke="#2A3547" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </span>
-    } @else {
-      <span class="isax {{icon}}"></span>
-    }
-    <span class="text-body-secondary fw-normal font-chart-sm">{{text}}</span>
-    {{label}}
+@if (chartOption) {
+  <div class="d-flex justify-content-center align-items-center" style="height: 172px; width: 172px;">
+    <div echarts [options]="chartOption" class="doughnut-chart" (chartInit)="chartInit()" style="height: 172px; width: 172px;"></div>
+    <div class="graph-middle-content position-absolute">
+      @if(icon == 'refresh') {
+        <span class="isax {{icon}}">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18.3337 10.0003C18.3337 14.6003 14.6003 18.3337 10.0003 18.3337C5.40033 18.3337 2.59199 13.7003 2.59199 13.7003M2.59199 13.7003H6.35866M2.59199 13.7003V17.867M1.66699 10.0003C1.66699 5.40033 5.36699 1.66699 10.0003 1.66699C15.5587 1.66699 18.3337 6.30033 18.3337 6.30033M18.3337 6.30033V2.13366M18.3337 6.30033H14.6337" stroke="#2A3547" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+      } @else {
+        <span class="isax {{icon}}"></span>
+      }
+      <span class="text-body-secondary fw-normal font-chart-sm">{{text}}</span>
+      {{label}}
+    </div>
   </div>
-</div>
+}
+

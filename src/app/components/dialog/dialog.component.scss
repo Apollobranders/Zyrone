@@ -1,0 +1,20 @@
+.dialog-card {
+  .dialog-title {
+    font-family: var(--mc-font-family-Jakarta);
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 120%;
+  }
+  .dialog-icon {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+  }
+}
+

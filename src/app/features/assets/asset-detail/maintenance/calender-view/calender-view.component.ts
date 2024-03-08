@@ -18,118 +18,49 @@ import { Subject } from 'rxjs';
 })
 export class CalenderViewComponent {
 
-  colors: any = {
-    red: {
-      primary: '#ad2121',
-      secondary: '#FAE3E3'
-    },
-    blue: {
-      primary: '#1e90ff',
-      secondary: '#D1E8FF'
-    },
-    yellow: {
-      primary: '#e3bc08',
-      secondary: '#FDF1BA'
-    }
-  };
-  modalData!: {
-    action: string;
-    event: CalendarEvent;
-  };
-
-  view: CalendarView = CalendarView.Week;
-  CalendarView = CalendarView;
-  viewDate: Date = new Date();
-
-  activeDayIsOpen: boolean = true;
-  refresh: Subject<any> = new Subject();
-
-  actions: CalendarEventAction[] = [
-    {
-      label: '<i class="fa fa-fw fa-pencil"></i>',
-      onClick: ({ event }: { event: CalendarEvent }): void => {
-        this.handleEvent('Edited', event);
-      }
-    },
-    {
-      label: '<i class="fa fa-fw fa-times"></i>',
-      onClick: ({ event }: { event: CalendarEvent }): void => {
-        this.events = this.events.filter(iEvent => iEvent !== event);
-        this.handleEvent('Deleted', event);
-      }
-    }
+  days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+  hours = Array.from({ length: 24 }, (_, i) => ('0' + i).slice(-2) + ':00');
+  events = [
+    { startTime: '05:10', endTime: '06:00', days: ['Mon', 'Tue', 'Wed'] },
+    { startTime: '12:00', endTime: '13:00', days: ['Mon', 'Tue'] },
+    // Add more events as needed
   ];
 
-  events: CalendarEvent[] = [
-    {
-      start: new Date('2024-03-03T12:30:00.000Z'), // Start time of the new event
-      end: new Date('2024-03-06T12:30:00.000Z'),   // End time of the new event
-      title: 'New Event',
-      color: this.colors.blue, // Event color
-      draggable: true,
-      resizable: {
-        beforeStart: true,
-        afterEnd: true
-      },
-      allDay: false,
-      actions: this.actions,
+  constructor() {}
+
+  calculateEventPosition(event: any): any {
+    if (!event || !event.startTime || !event.endTime || !event.days || event.days.length === 0) {
+      return {};
     }
-  ];
 
-  constructor() {
-    // Pre-process events to merge multi-day events
-    this.events = this.mergeMultiDayEvents(this.events);
+    const firstDayIndex = this.days.findIndex(day => day === event.days[0]);
+    const lastDayIndex = this.days.findIndex(day => day === event.days[event.days.length - 1]);
+    const startTimeSplit = event.startTime.split(':');
+    const endTimeSplit = event.endTime.split(':');
+    const startHourIndex = parseInt(startTimeSplit[0]);
+    const startMinuteIndex = parseInt(startTimeSplit[1]);
+    const endHourIndex = parseInt(endTimeSplit[0]);
+    const endMinuteIndex = parseInt(endTimeSplit[1]);
+
+    const paddingLeft = 10; // Adjust padding as needed
+    const eventHeight = 40; // Fixed height for each event
+
+    // Calculate top position based on start time
+    const topPosition = startHourIndex * 60 + startMinuteIndex;
+
+    return {
+      top: `${topPosition}px`,
+      left: `${firstDayIndex * 100 + paddingLeft}px`,
+      width: `${(lastDayIndex - firstDayIndex + 1) * 100 - paddingLeft}px`,
+      height: `${eventHeight}px`
+    };
   }
 
-  mergeMultiDayEvents(events: CalendarEvent[]): CalendarEvent[] {
-    const mergedEvents: CalendarEvent[] = [];
-    events.forEach(event => {
-      // Calculate the number of days the event spans
-      const days = Math.ceil((event.end!.getTime() - event.start.getTime()) / (1000 * 60 * 60 * 24));
-      if (days > 1) {
-        // Multi-day event, create a single event for each day it spans
-        for (let i = 0; i < days; i++) {
-          const start = addDays(event.start, i);
-          const end = addDays(event.start, i);
-          const title = i === 0 ? event.title : ''; // Display title only for the first day
-          mergedEvents.push({ start, end, title, color: event.color });
-        }
-      } else {
-        // Single-day event, keep it as is
-        mergedEvents.push(event);
-      }
-    });
-    return mergedEvents;
-  }
 
-  dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
-    if (isSameMonth(date, this.viewDate)) {
-      this.viewDate = date;
-      if (
-        (isSameDay(this.viewDate, date) && this.activeDayIsOpen === true) ||
-        events.length === 0
-      ) {
-        this.activeDayIsOpen = false;
-      } else {
-        this.activeDayIsOpen = true;
-      }
-    }
-  }
-
-  handleEvent(action: string, event: CalendarEvent): void {
-    this.modalData = { event, action };
-    //this.modal.open(this.modalContent, { size: 'lg' });
-  }
-
-  eventTimesChanged({
-    event,
-    newStart,
-    newEnd
-  }: CalendarEventTimesChangedEvent): void {
-    event.start = newStart;
-    event.end = newEnd;
-    this.handleEvent('Dropped or resized', event);
-    this.refresh.next(event);
+  getTimePosition(time: string): number {
+    const [hours, minutes] = time.split(':');
+    const hourPosition = this.hours.findIndex(hour => hour === `${hours}:${minutes}`);
+    return hourPosition * 30; // Assuming each hour cell height is 30px
   }
 
 

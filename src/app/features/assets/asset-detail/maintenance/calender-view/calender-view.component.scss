@@ -1,50 +1,36 @@
-.built-in-event ul {
-  margin: 0;
-  padding-left: 20px;
+.time-grid {
+  display: flex;
 }
 
-.built-in-event ul li {
-  color: black;
-  word-wrap: break-word;
-  font-size: 10px;
-  list-style-type: initial;
+.sidebar {
+  display: flex;
+  flex-direction: column;
 }
 
-.week-view-event {
-  background: red;
-  border-radius: 21px;
-  cursor: pointer;
-  height: 21px;
-  overflow: visible;
-  line-height: 20px;
+.body {
+  flex: 1;
+  position: relative;
 }
 
-.employee-calendar-display-name {
-  color: black;
-  font-size: 10px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  width: 90%;
+.time-cell, .day-header {
+  flex: 1;
+  border-bottom: 1px solid #ccc;
+  padding: 5px;
 }
 
-::ng-deep {
-  .cal-week-view .cal-hour:not(:last-child) .cal-hour-segment, .cal-week-view .cal-hour:last-child :not(:last-child) .cal-hour-segment {
-    border: 0;
-  }
-  .cal-week-view .cal-day-column {
-    border: 0;
-  }
-  .cal-week-view .cal-starts-within-day .cal-event {
-    background: transparent !important;
-    width: 100%;
-    border-left: 0;
-    border-right: 0;
-    border-radius: 0;
-  }
-
-  .cal-hour {
-      width: 100%;
-  }
+.day-row {
+  display: flex;
 }
 
+.event {
+  position: absolute;
+  border: 1px solid #ccc;
+  background-color: lightblue; /* Example background color */
+}
+
+.event-time {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}

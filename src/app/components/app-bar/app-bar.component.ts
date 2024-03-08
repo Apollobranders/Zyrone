@@ -12,6 +12,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Observable, filter, map, startWith } from 'rxjs';
 import { ActivatedRoute, NavigationEnd, Router, RouterModule } from '@angular/router';
+import { EventsService } from '../../services/events.service';
 
 @Component({
   selector: 'app-app-bar',
@@ -48,7 +49,8 @@ export class AppBarComponent implements OnInit, AfterViewInit {
     private utilService: UtilService,
     public router: Router,
     private route: ActivatedRoute,
-    private location: Location
+    private location: Location,
+    private eventService: EventsService
   ) {
 
   }
@@ -82,7 +84,7 @@ export class AppBarComponent implements OnInit, AfterViewInit {
       filter(event => event instanceof NavigationEnd)
   )
       .subscribe((e: any) => {
-
+        this.pageTitle =e.url.replace('/' , ' ')
         if(e.url == '/assets/card-view') {
           this.pageTitle = 'assets';
         }
@@ -197,8 +199,13 @@ export class AppBarComponent implements OnInit, AfterViewInit {
     }
   };
 
+  cartSubmitinit = () => this.eventService.emitEvent('SubmitCart', {});
+
   goBack(): void {
     this.location.back();
   }
+
+
+
 
 }

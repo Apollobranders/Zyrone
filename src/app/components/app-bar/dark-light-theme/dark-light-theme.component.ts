@@ -120,8 +120,8 @@ export class DarkLightThemeComponent {
         ]
       }
     }
-    this.utilService.updateCharts(chartDom, options1);
-    this.utilService.updateCharts(multiDoughnutChart, options2);
+    //this.utilService.updateCharts(chartDom, options1);
+    //this.utilService.updateCharts(multiDoughnutChart, options2);
 
   }
 
