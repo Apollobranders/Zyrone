@@ -1,0 +1,86 @@
+#map {
+  min-height: 792px;
+  width: 100%;
+
+}
+::ng-deep {
+  .leaflet-left {
+    left: auto;
+    right: 12px;
+  }
+  .leaflet-touch .leaflet-control-layers, .leaflet-touch .leaflet-bar {
+    border: 0;
+    background: #5D87FF;
+    padding: 0 8px;
+    width: 40px;
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    // align-items: center;
+    gap: 6px;
+    &:after {
+      content: "";
+      position: absolute;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      padding: 0px;
+      width: 32px;
+      height: 1px;
+      background: #FFFFFF;
+      opacity: 0.5;
+      border-radius: 40px;
+      margin: auto;
+      left: 0;
+      right: 0;
+    }
+    a {
+      width: 21px;
+      height: 29px;
+      background: none;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 0;
+      padding: 16px 0px;
+      span {
+        display: none;
+      }
+      &.leaflet-disabled {
+        cursor: default;
+        //background-color: #f4f4f4;
+        color: #bbb;
+      }
+    }
+    .leaflet-control-zoom-in {
+      border-radius: 8px 8px 0px 0px;
+      &:before {
+        content: "\e90b";
+        font-family: 'iconsax' !important;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+      }
+      //border-bottom: 0;
+    }
+    .leaflet-control-zoom-out {
+      border-radius: 0px 0px 8px 8px;
+      &:before {
+        content: "\eb21";
+        font-family: 'iconsax' !important;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+      }
+    }
+  }
+}
+
+

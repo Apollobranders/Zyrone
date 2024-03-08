@@ -1,0 +1,136 @@
+.lagend-list {
+  list-style: none;
+  padding: 0 15px;
+  display: flex;
+  justify-content: space-around;
+  .list-item {
+    font-family: var(--mc-font-family-Jakarta);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 140%;
+    color: var(--mc-text-body-secondary);
+    .lagend-icon {
+      width: 10px;
+      height: 10px;
+      display: inline-block;
+      border-radius: 50%;
+    }
+  }
+}
+
+
+.site-alert-list {
+  font-family: var(--mc-font-family-Jakarta);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 140%;
+  color: #2A3547;
+  border: 0;
+  row-gap: 15px;
+    padding: 12px 0;
+  .badge {
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: -0.01em;
+  }
+}
+
+.top-alert-list {
+  row-gap: 20px;
+  .top-alert-icon {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    .isax  {
+      font-size: 20px;
+    }
+  }
+  .top-alert-content {
+    width: 100%;
+    padding-left: 14px;
+    .list-title {
+      font-family: var(--mc-font-family-Jakarta);
+      font-style: normal;
+      line-height: 140%;
+    }
+    p {
+      font-family: var(--mc-font-family-Jakarta);
+      font-style: normal;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 140%;
+      margin-bottom: 0;
+    }
+  }
+  .top-alert-time {
+    font-family: var(--mc-font-family-Jakarta);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 140%;
+    color: #5A6A85;
+  }
+
+}
+
+.timeline-vertical {
+  height: 237px;
+  width: fit-content;
+  margin: auto;
+  .timeline-item {
+    margin-bottom: 24px;
+    .timeline-item-bar {
+      position: relative;
+      margin-top: 12px;
+      .timeline-icon-ecllipse {
+        box-sizing: border-box;
+        width: 13px;
+        height: 13px;
+        border-radius: 50%;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        position: relative;
+        z-index: 1;
+      }
+      .timeline-bar {
+        position: absolute;
+        height: 85px;
+        left: 6px;
+        top: -15px;
+      }
+
+    }
+    .timeline-item-content {
+      width: 40px;
+      height: 40px;
+      background: var(--mc-primary-2);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 15px;
+      .isax {
+        font-size: 20px;
+      }
+    }
+  }
+}
+
+
+.card-body .form-select {
+  width: 86px;
+}

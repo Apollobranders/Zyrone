@@ -1,0 +1,63 @@
+<!-- @if(profileType == 'profile') {
+  <app-user-profile></app-user-profile>
+} @else {
+  <app-company-profile></app-company-profile>
+} -->
+
+<a class="nav-link lh-1 pe-0" id="navbarDropdownUser" href="#!" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false">
+  <div class="avatar avatar-l ">
+    <img class="rounded-circle " src="assets/img/Ellipse 58.png" alt="" />
+  </div>
+</a>
+<div class="dropdown-menu dropdown-menu-end navbar-dropdown-caret py-0 dropdown-profile shadow border" aria-labelledby="navbarDropdownUser">
+  <div class="card position-relative border-0 px-4">
+    <div class="card-body user-profile-menu-card p-0">
+      <div class="text-start pt-4 pb-3">
+        <h5 class="text-body-emphasis">User Profile</h5>
+      </div>
+      <div class="d-flex gap-3 pb-2">
+        <div class="avatar avatar-xl ">
+          <img class="rounded-circle " src="assets/img/user-md.png" alt="" />
+        </div>
+        <div>
+          <h6 class="mt-2 text-body-emphasis">Jerry Seinfield</h6>
+          <p class="text-body-emphasis mb-0">Super Admin</p>
+          <p class="text-body-emphasis mb-0">{{'info@zyroneenergy.com'}}</p>
+        </div>
+      </div>
+      <hr />
+    </div>
+    <div class="menu-nav pb-3">
+      <ul class="list-group profile-menu-list">
+        <li class="d-flex justify-content-between align-items-center">
+          <a href="#!" class="d-flex align-items-center text-decoration-none w-100">
+            <div class="profile-icon-bx action-light-color-bg-5">
+              <span class="isax isax-battery-disable action-color-text-5"></span>
+            </div>
+            <div class="profile-menu-content">
+              <div class="fs-10 fw-semibold text-body-emphasis list-title">My Profile</div>
+              <p class="fs-10 text-body-tertiary mb-0">Account Setting</p>
+            </div>
+          </a>
+        </li>
+        <li class="d-flex justify-content-between align-items-center">
+          <a href="#!" class="d-flex align-items-center text-decoration-none w-100">
+            <div class="profile-icon-bx action-light-color-bg-5">
+              <span class="isax isax-monitor action-color-text-5"></span>
+            </div>
+            <div class="profile-menu-content">
+              <div class="fs-10 fw-semibold text-body-emphasis list-title">Company Profile</div>
+              <p class="fs-10 text-body-tertiary mb-0">Profile Setting</p>
+            </div>
+          </a>
+        </li>
+      </ul>
+      <div class="mt-3 mb-2">
+        <a class="btn btn-primary text-center w-100 profile-menu-logout-btn" href="#!">
+          Logout
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>

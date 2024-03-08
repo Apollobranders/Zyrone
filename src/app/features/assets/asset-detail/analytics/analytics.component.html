@@ -1,0 +1,309 @@
+<div class="row">
+  <div class="col-lg-3">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title fw-semibold">State of Charge</h5>
+        <h6 class="fs-10 text-body-tertiary card-subtitle mb-2">Overview</h6>
+      </div>
+      <div class="e-graph d-flex justify-content-center">
+        <app-half-doughnut-chart *ngIf="state_of_charges_data" label="50%" icon="isax-battery-full" [colors]="colors" [data]="state_of_charges_data"></app-half-doughnut-chart>
+      </div>
+      <hr />
+      <ul class="lagend-list">
+        <li class="list-item">
+          <span class="lagend-icon action-color-bg-4"></span> Low
+        </li>
+        <li class="list-item">
+          <span class="lagend-icon action-color-bg-3"></span> Warning
+        </li>
+        <li class="list-item">
+          <span class="lagend-icon action-color-bg-2"></span> Moderate
+        </li>
+        <li class="list-item">
+          <span class="lagend-icon action-color-bg-1"></span> Full
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="col-lg-3">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title fw-semibold">State of Health</h5>
+        <h6 class="fs-10 text-body-tertiary card-subtitle mb-2">Overview</h6>
+      </div>
+      <div class="e-graph d-flex justify-content-center">
+        <app-half-doughnut-chart *ngIf="state_of_health_data" label="Moderate" icon="isax-heart" [colors]="colors" [data]="state_of_health_data"></app-half-doughnut-chart>
+      </div>
+      <hr />
+      <ul class="lagend-list">
+        <li class="list-item">
+          <span class="lagend-icon action-color-bg-4"></span> Low
+        </li>
+        <li class="list-item">
+          <span class="lagend-icon action-color-bg-3"></span> Warning
+        </li>
+        <li class="list-item">
+          <span class="lagend-icon action-color-bg-2"></span> Moderate
+        </li>
+        <li class="list-item">
+          <span class="lagend-icon action-color-bg-1"></span> Good
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="col-lg-3">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title fw-semibold">Cycles</h5>
+        <h6 class="fs-10 text-body-tertiary card-subtitle mb-2">Overview</h6>
+      </div>
+      <div class="e-graph d-flex justify-content-center">
+        <app-doughnut-chart *ngIf="cycles_data" label="400" text="Total Cycles" icon="refresh" [colors]="cycles_colors" [data]="cycles_data"></app-doughnut-chart>
+      </div>
+      <hr />
+      <ul class="lagend-list">
+        <li class="list-item">
+          <span class="lagend-icon action-color-bg-4"></span> Total Cycles
+        </li>
+        <li class="list-item">
+          <span class="lagend-icon action-color-bg-5"></span> Completed Cycles
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="col-lg-3">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title fw-semibold">Temperature</h5>
+        <h6 class="fs-10 text-body-tertiary card-subtitle mb-2">Overview</h6>
+      </div>
+      <div class="e-graph d-flex justify-content-center">
+        <app-half-doughnut-chart *ngIf="temperature_data" label="Moderate" icon="temperature" [colors]="colors" [data]="temperature_data"></app-half-doughnut-chart>
+      </div>
+      <hr />
+      <ul class="lagend-list">
+        <li class="list-item">
+          <span class="lagend-icon action-color-bg-1"></span> Normal
+        </li>
+        <li class="list-item">
+          <span class="lagend-icon action-color-bg-2"></span> Moderate
+        </li>
+        <li class="list-item">
+          <span class="lagend-icon action-color-bg-3"></span> Warning
+        </li>
+        <li class="list-item">
+          <span class="lagend-icon action-color-bg-4"></span> High
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="row pt-4">
+  <div class="col-lg-6">
+    <div class="card pb-4">
+      <div class="card-body">
+        <div class="d-flex align-items-start justify-content-between">
+          <div>
+            <h5 class="card-title fw-semibold">Energy Consumption</h5>
+            <!-- <h6 class="fs-10 text-body-tertiary card-subtitle mb-2">Overview</h6> -->
+          </div>
+        </div>
+      </div>
+
+      <div class="e-graph-bar d-flex justify-content-center">
+        <app-bar-chart [label]="'Cycles'" [type]="'value'" [data]="energy_consumption_data"></app-bar-chart>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6">
+    <div class="card pb-4">
+      <div class="card-body">
+        <div class="d-flex align-items-start justify-content-between">
+          <div class="d-flex justify-content-between align-items-center w-100">
+            <h5 class="card-title fw-semibold mb-0">Capacity</h5>
+            <ul class="lagend-list mb-3 gap-2">
+              <li class="list-item">
+                <span class="lagend-icon action-color-bg-1"></span> Charge
+              </li>
+              <li class="list-item">
+                <span class="lagend-icon action-color-bg-2"></span> Discharge
+              </li>
+            </ul>
+            <!-- <h6 class="fs-10 text-body-tertiary card-subtitle mb-2">Overview</h6> -->
+          </div>
+        </div>
+      </div>
+
+      <div class="e-graph-bar d-flex justify-content-center">
+        <app-bar-chart [label]="'Cycles'" [type]="'stack'" [data]="energy_consumption_data"></app-bar-chart>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row pt-4">
+  <div class="col-lg-6">
+    <div class="card pb-4">
+      <div class="card-body">
+        <div class="d-flex align-items-start justify-content-between">
+          <div>
+            <h5 class="card-title fw-semibold">Bank Health</h5>
+            <h6 class="fs-10 text-body-tertiary card-subtitle mb-2">Overview</h6>
+          </div>
+        </div>
+      </div>
+
+      <div class="e-graph-bar d-flex justify-content-center">
+        <app-line-chart [label]="'25/08/2023'" [data]="bank_health_data" [min]="'2024-03-06 00:00'" [max]="'2024-03-06 07:00'"></app-line-chart>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6">
+    <div class="card pb-4">
+      <div class="card-body">
+        <div class="d-flex align-items-start justify-content-between">
+          <div>
+            <h5 class="card-title fw-semibold">Bank Charge</h5>
+            <h6 class="fs-10 text-body-tertiary card-subtitle mb-2">Overview</h6>
+          </div>
+        </div>
+      </div>
+
+      <div class="e-graph-bar d-flex justify-content-center">
+        <app-line-chart [label]="'25/08/2023'" [data]="bank_charge_data" [min]="'2024-03-06 00:00'" [max]="'2024-03-06 07:00'"></app-line-chart>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row pt-4">
+  <div class="col-lg-6">
+    <div class="card pb-4">
+      <div class="card-body">
+        <div class="d-flex justify-content-between align-items-center w-100">
+          <div>
+            <h5 class="card-title fw-semibold">Bank Voltage</h5>
+            <h6 class="fs-10 text-body-tertiary card-subtitle mb-2">Overview</h6>
+          </div>
+          <ul class="lagend-list mb-3 gap-2">
+            <li class="list-item">
+              <span class="lagend-icon action-color-bg-5"></span> Voltage Levels
+            </li>
+            <li class="list-item">
+              <span class="lagend-icon action-color-bg-4"></span> Threshold Limit
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="e-graph-bar d-flex justify-content-center">
+        <app-line-chart [label]="'25/08/2023'" [data]="bank_voltage_data"  [min]="'2024-03-06 00:00'" [max]="'2024-03-06 07:00'" [type]="'markLine'"></app-line-chart>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6">
+    <div class="card pb-4">
+      <div class="card-body">
+        <div class="d-flex justify-content-between align-items-center w-100">
+          <div>
+            <h5 class="card-title fw-semibold">Bank Temperature</h5>
+            <h6 class="fs-10 text-body-tertiary card-subtitle mb-2">Overview</h6>
+          </div>
+          <ul class="lagend-list mb-3 gap-2">
+            <li class="list-item">
+              <span class="lagend-icon action-color-bg-5"></span> Temperature Levels
+            </li>
+            <li class="list-item">
+              <span class="lagend-icon action-color-bg-4"></span> Threshold Limit
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="e-graph-bar d-flex justify-content-center">
+        <app-line-chart [label]="'25/08/2023'" [data]="bank_temperature_data"  [min]="'2024-03-06 00:00'" [max]="'2024-03-06 07:00'" [type]="'markLine'" [minMark]="5" [maxMark]="20" [splitNumber]="5" [interval]="5" [formatter]="'C'"></app-line-chart>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row pt-4">
+  <div class="col-lg-12">
+    <div class="card pb-4">
+      <div class="card-body">
+        <div class="d-flex justify-content-between align-items-center w-100">
+          <div>
+            <h5 class="card-title fw-semibold">Bank Current</h5>
+            <h6 class="fs-10 text-body-tertiary card-subtitle mb-2">Overview</h6>
+          </div>
+          <ul class="lagend-list mb-3 gap-2">
+            <li class="list-item">
+              <span class="lagend-icon action-color-bg-1"></span> Charging
+            </li>
+            <li class="list-item">
+              <span class="lagend-icon action-color-bg-2"></span> Discharging
+            </li>
+            <li class="list-item">
+              <span class="lagend-icon action-color-bg-4"></span> Threshold Limit
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="e-graph-bar d-flex justify-content-center">
+        <app-line-chart [label]="'25/08/2023'" [data]="bank_current_data"  [width]="1158" [height]="395" [min]="'2024-03-06 00:00'" [max]="'2024-03-06 15:00'" [type]="'markLine'" [multipleMarkLines]="false" [minMark]="-15" [maxMark]="15" [splitNumber]="5" [interval]="5" [formatter]="'A'"></app-line-chart>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row py-4">
+  <div class="col-lg-12">
+    <div class="card pb-4">
+      <div class="card-body">
+        <div class="d-flex justify-content-between align-items-center w-100">
+          <div>
+            <h5 class="card-title fw-semibold">KPI Comparison</h5>
+            <h6 class="fs-10 text-body-tertiary card-subtitle mb-2">Overview</h6>
+          </div>
+          <div class="d-flex align-items-center">
+            <ul class="lagend-list mb-0 gap-2">
+              <li class="list-item">
+                <span class="lagend-icon bg-secondary"></span> Ambience Temperature
+              </li>
+              <li class="list-item">
+                <span class="lagend-icon action-color-bg-5"></span> Battery Temperature
+              </li>
+            </ul>
+            <div class="dropdown">
+              <div class="dropdown">
+                <button class="form-select d-flex align-items-center gap-2" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Temperature: Ambience vs Battery
+                </button>
+                <ul class="dropdown-menu w-100">
+                  <li>
+                    <a class="dropdown-item active" href="javascript:void(0)">
+                      Asset Name
+                      <svg width="12" height="10" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4.34234 9.17974C4.10889 9.17974 3.88711 9.08636 3.7237 8.92295L0.420381 5.61963C0.0818783 5.28113 0.0818783 4.72085 0.420381 4.38234C0.758883 4.04384 1.31916 4.04384 1.65767 4.38234L4.34234 7.06702L10.342 1.06735C10.6805 0.728851 11.2408 0.728851 11.5793 1.06735C11.9178 1.40586 11.9178 1.96614 11.5793 2.30464L4.96098 8.92295C4.79757 9.08636 4.57579 9.17974 4.34234 9.17974Z" fill="#5D87FF"/>
+                      </svg>
+                    </a>
+                  </li>
+                  <li><a class="dropdown-item" href="javascript:void(0)">Location</a></li>
+                  <li><a class="dropdown-item" href="javascript:void(0)">Battery Count</a></li>
+                  <li><a class="dropdown-item" href="javascript:void(0)">Last Heart Bit</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="e-graph-bar d-flex justify-content-center">
+        <app-line-chart [label]="'25/08/2023'" [data]="bank_health_data" [width]="1158" [height]="395" [min]="'2024-03-06 00:00'" [max]="'2024-03-06 15:00'" [type]="'stack'"></app-line-chart>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+
+<main class="main" id="top" >
+  <app-side-bar (pageChangeEvent)="onPageChange($event)"></app-side-bar>
+  <div class="layout">
+    <app-app-bar [title]="pageTitle"></app-app-bar>
+    <div class="content mt-3 px-4">
+      <router-outlet (activate)="setPageHeader()"></router-outlet>
+    </div>
+  </div>
+</main>
+
+

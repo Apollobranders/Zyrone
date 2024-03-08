@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col-lg-12">
+    @for (row of chunkArray(data, 5); let index = $index; track '') {
+      <div class="row gy-3 mb-3">
+        @for (item of row; track item.name) {
+          <a class="col col-default-card text-decoration-none px-2" [routerLink]="['/assets/detail/analytics', 1]" >
+            <app-asset-card [data]="item"></app-asset-card>
+          </a>
+        } @empty {
+          <div> There are no items. </div>
+        }
+      </div>
+    }
+
+  </div>
+</div>
+

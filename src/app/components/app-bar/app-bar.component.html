@@ -1,0 +1,165 @@
+<nav class="navbar navbar-top px-4 sticky-top navbar-expand w-100 navbar-white" id="navbarDefault">
+  <div class="collapse navbar-collapse justify-content-between">
+    <div class="sidebar-toggle text-capitalize">
+      <a href="javascript:void(0)" class="navbar-vertical-toggle" data-bs-toggle="collapse" data-bs-target="#navbarVerticalCollapse" aria-controls="navbarVerticalCollapse" aria-expanded="false" aria-label="Toggle Navigation">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M21 7.75H3C2.59 7.75 2.25 7.41 2.25 7C2.25 6.59 2.59 6.25 3 6.25H21C21.41 6.25 21.75 6.59 21.75 7C21.75 7.41 21.41 7.75 21 7.75Z" fill="#5A6A85"/>
+          <path d="M21 12.75H3C2.59 12.75 2.25 12.41 2.25 12C2.25 11.59 2.59 11.25 3 11.25H21C21.41 11.25 21.75 11.59 21.75 12C21.75 12.41 21.41 12.75 21 12.75Z" fill="#5A6A85"/>
+          <path d="M21 17.75H3C2.59 17.75 2.25 17.41 2.25 17C2.25 16.59 2.59 16.25 3 16.25H21C21.41 16.25 21.75 16.59 21.75 17C21.75 17.41 21.41 17.75 21 17.75Z" fill="#5A6A85"/>
+        </svg>
+      </a>
+      @if(router.url.includes('assets/detail')) {
+        <button type="button" class="btn p-0 d-flex" (click)="goBack()">
+          <span class="isax isax-arrow-left"></span>
+        </button>
+      }
+      {{pageTitle}}
+
+    </div>
+    @if(pageTitle == 'assets') {
+      <div class="me-auto ps-3">
+        <div class="btn-group">
+          <a href="javascript:void(0)" class="btn" routerLink="/assets/map-view" [ngClass]="router.url == '/assets/map-view' ? 'btn-primary': 'btn-secondary'" aria-current="page">Mapview</a>
+          <a href="javascript:void(0)" class="btn"  routerLink="/assets/card-view" [ngClass]="router.url == '/assets/card-view' ? 'btn-primary': 'btn-secondary'">Cardview</a>
+        </div>
+      </div>
+      <div class="ms-auto px-3">
+        <ul class="navbar-nav navbar-nav-icons flex-row gap-3">
+          <li class="nav-item">
+            <div class="search-box w-100 mb-2 mb-sm-0" style="max-width:30rem;">
+              <form class="position-relative" data-bs-toggle="search" data-bs-display="static">
+                <input type="text"
+                    placeholder="Search place"
+                    [formControl]="control"
+                    [matAutocomplete]="auto"
+                    class="form-control search-input search">
+              <mat-autocomplete #auto="matAutocomplete">
+                @for (street of filteredStreets | async; track street) {
+                  <mat-option [value]="street">{{street}}</mat-option>
+                }
+              </mat-autocomplete>
+                <span class="search-box-icon isax isax-search-normal"></span>
+              </form>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <!-- <mat-form-field>
+              <mat-label>Choose an option</mat-label>
+              <mat-select>
+                <mat-option value="option1">Option 1</mat-option>
+                <mat-option value="option2" disabled>Option 2 (disabled)</mat-option>
+                <mat-option value="option3">Option 3</mat-option>
+              </mat-select>
+            </mat-form-field> -->
+            <div class="dropdown">
+              <button class="form-select" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                All Assets
+              </button>
+              <ul class="dropdown-menu w-100">
+                <li>
+                  <a class="dropdown-item active" href="javascript:void(0)">
+                    All Assets
+                    <svg width="12" height="10" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M4.34234 9.17974C4.10889 9.17974 3.88711 9.08636 3.7237 8.92295L0.420381 5.61963C0.0818783 5.28113 0.0818783 4.72085 0.420381 4.38234C0.758883 4.04384 1.31916 4.04384 1.65767 4.38234L4.34234 7.06702L10.342 1.06735C10.6805 0.728851 11.2408 0.728851 11.5793 1.06735C11.9178 1.40586 11.9178 1.96614 11.5793 2.30464L4.96098 8.92295C4.79757 9.08636 4.57579 9.17974 4.34234 9.17974Z" fill="#5D87FF"/>
+                    </svg>
+                  </a>
+                </li>
+                <li><a class="dropdown-item" href="javascript:void(0)">Type 1</a></li>
+                <li><a class="dropdown-item" href="javascript:void(0)">Type 2</a></li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="nav-item dropdown">
+            <div class="dropdown" style="min-width: 130px;">
+              <button class="form-select" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Short by
+              </button>
+              <ul class="dropdown-menu w-100">
+                <li>
+                  <a class="dropdown-item active" href="javascript:void(0)">
+                    Asset Name
+                    <svg width="12" height="10" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M4.34234 9.17974C4.10889 9.17974 3.88711 9.08636 3.7237 8.92295L0.420381 5.61963C0.0818783 5.28113 0.0818783 4.72085 0.420381 4.38234C0.758883 4.04384 1.31916 4.04384 1.65767 4.38234L4.34234 7.06702L10.342 1.06735C10.6805 0.728851 11.2408 0.728851 11.5793 1.06735C11.9178 1.40586 11.9178 1.96614 11.5793 2.30464L4.96098 8.92295C4.79757 9.08636 4.57579 9.17974 4.34234 9.17974Z" fill="#5D87FF"/>
+                    </svg>
+                  </a>
+                </li>
+                <li><a class="dropdown-item" href="javascript:void(0)">Location</a></li>
+                <li><a class="dropdown-item" href="javascript:void(0)">Battery Count</a></li>
+                <li><a class="dropdown-item" href="javascript:void(0)">Last Heart Bit</a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+    } @else if (router.url.includes('assets/detail')) {
+
+      <div class="me-auto ps-3">
+        <div class="btn-group">
+          <a href="javascript:void(0)" class="btn" [routerLink]="['/assets/detail/analytics', assetDetailID]" [ngClass]="router.url.includes('assets/detail/analytics') ? 'btn-primary': 'btn-secondary'" aria-current="page">Analytics</a>
+          <a href="javascript:void(0)" class="btn" [routerLink]="['/assets/detail/specifications', assetDetailID]" [ngClass]="router.url.includes('assets/detail/specifications') ? 'btn-primary': 'btn-secondary'">Specifications</a>
+          <a href="javascript:void(0)" class="btn" [routerLink]="['/assets/detail/maintenance', assetDetailID]" [ngClass]="router.url.includes('assets/detail/maintenance') ? 'btn-primary': 'btn-secondary'">Maintenance</a>
+        </div>
+      </div>
+      <div class="ms-auto px-3">
+        <ul class="navbar-nav navbar-nav-icons flex-row gap-3">
+          <li class="nav-item dropdown">
+            <div class="dropdown">
+              <button class="form-select" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Monitor 1
+              </button>
+              <ul class="dropdown-menu w-100">
+                <li>
+                  <a class="dropdown-item active" href="javascript:void(0)">
+                    Monitor 1
+                    <svg width="12" height="10" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M4.34234 9.17974C4.10889 9.17974 3.88711 9.08636 3.7237 8.92295L0.420381 5.61963C0.0818783 5.28113 0.0818783 4.72085 0.420381 4.38234C0.758883 4.04384 1.31916 4.04384 1.65767 4.38234L4.34234 7.06702L10.342 1.06735C10.6805 0.728851 11.2408 0.728851 11.5793 1.06735C11.9178 1.40586 11.9178 1.96614 11.5793 2.30464L4.96098 8.92295C4.79757 9.08636 4.57579 9.17974 4.34234 9.17974Z" fill="#5D87FF"/>
+                    </svg>
+                  </a>
+                </li>
+                <li><a class="dropdown-item" href="javascript:void(0)">Monitor 1</a></li>
+                <li><a class="dropdown-item" href="javascript:void(0)">Monitor 2</a></li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="nav-item dropdown">
+            <div class="dropdown" style="min-width: 130px;">
+              <button class="form-select d-flex align-items-center gap-2" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+               <span class="isax isax-clock"></span> HH:MM DD/MM/YYYY to HH:MM DD/MM/YYYY
+              </button>
+              <ul class="dropdown-menu w-100">
+                <li>
+                  <a class="dropdown-item active" href="javascript:void(0)">
+                    Asset Name
+                    <svg width="12" height="10" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M4.34234 9.17974C4.10889 9.17974 3.88711 9.08636 3.7237 8.92295L0.420381 5.61963C0.0818783 5.28113 0.0818783 4.72085 0.420381 4.38234C0.758883 4.04384 1.31916 4.04384 1.65767 4.38234L4.34234 7.06702L10.342 1.06735C10.6805 0.728851 11.2408 0.728851 11.5793 1.06735C11.9178 1.40586 11.9178 1.96614 11.5793 2.30464L4.96098 8.92295C4.79757 9.08636 4.57579 9.17974 4.34234 9.17974Z" fill="#5D87FF"/>
+                    </svg>
+                  </a>
+                </li>
+                <li><a class="dropdown-item" href="javascript:void(0)">Location</a></li>
+                <li><a class="dropdown-item" href="javascript:void(0)">Battery Count</a></li>
+                <li><a class="dropdown-item" href="javascript:void(0)">Last Heart Bit</a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+    } @else if (pageTitle === 'cart') {
+      <button class="btn btn-primary ms-auto me-3">Submit</button>
+    }
+
+    <ul class="navbar-nav navbar-nav-icons flex-row">
+      <li class="nav-item">
+        <app-dark-light-theme></app-dark-light-theme>
+      </li>
+      <li class="nav-item dropdown">
+        <app-notifications></app-notifications>
+      </li>
+
+      <li class="nav-item dropdown">
+        <app-profile></app-profile>
+      </li>
+    </ul>
+  </div>
+</nav>

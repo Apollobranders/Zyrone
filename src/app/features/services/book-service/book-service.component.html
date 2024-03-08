@@ -1,0 +1,89 @@
+<div class="row pb-4">
+  <div class="col-lg-3">
+    <div class="card service-card p-2">
+      <div class="card-body">
+        <h5 class="card-title fw-semibold">Select a Category</h5>
+        <h6 class="fs-10 text-body-tertiary card-subtitle mb-2">Overview</h6>
+        <ul class="list-group categories-list mt-4">
+          @for(category of categories; track category.name) {
+            <li class="d-flex justify-content-between align-items-center" [class.selected]="category.selected" (click)="selectCategory(category)">
+              <div class="d-flex align-items-center">
+                <div class="category-thumbnail">
+                  <img [src]="category.image" alt="">
+                </div>
+                <div class="fs-10 fw-semibold text-body-emphasis list-title ps-3">{{category.name}}</div>
+              </div>
+            </li>
+          }
+        </ul>
+      </div>
+    </div>
+    <div class="card talk-card p-2 mt-3">
+      <div class="card-body">
+        <h5 class="card-title fw-semibold">Not sure how to book service?</h5>
+        <h6 class="fs-10 text-body-tertiary card-subtitle mb-2">Don’t worry, we’re here to help you.</h6>
+        <button class="btn btn-primary w-100 mt-4">Talk to Helper</button>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6">
+    <div class="card service-card p-2">
+      <div class="card-body">
+        <h5 class="card-title fw-semibold">Add Service</h5>
+        <h6 class="fs-10 text-body-tertiary card-subtitle mb-2">Overview</h6>
+        <ul class="list-group add-service-list mt-4 gap-3">
+          @for(service of services; track service.name) {
+            <li class="d-flex justify-content-between align-items-start service-list-item">
+              <div class="service-content">
+                <h5 class="card-title text-body-emphasis fw-semibold">{{service.name}}</h5>
+                <div class="service-content-list" [innerHTML]="service.content"></div>
+                <div class="fs-10 fw-medium text-body-emphasis service-plan-starts">Starts at ₹{{service.price}}</div>
+              </div>
+              <div class="d-flex justify-content-center position-relative">
+                <div class="service-thumbnail">
+                  <img [src]="service.image" alt="">
+                </div>
+                @if(service.selected) {
+                  <button class="btn btn-danger remove-btn" (click)="removeCart(service)">Remove</button>
+                } @else {
+                  <button class="btn btn-primary remove-btn" (click)="addToCart(service)">Add</button>
+                }
+
+              </div>
+            </li>
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3">
+    <div class="card service-card p-2">
+      <div class="card-body">
+        <h5 class="card-title fw-semibold">Cart</h5>
+        <h6 class="fs-10 text-body-tertiary card-subtitle mb-2">Overview</h6>
+        <ul class="list-group cart-list gap-3 mt-4">
+          @for(item of cart; track item.name) {
+            <li class="d-flex justify-content-between align-items-center">
+              <div class="d-flex align-items-center justify-content-between w-100">
+                <div class="fs-10 text-body-emphasis fw-semibold">{{item.name}}</div>
+                <div class="d-flex align-items-center">
+                  <div class="fs-10 text-body-emphasis fw-semibold ps-3">₹{{item.price}}</div>
+                  <button class="remove-cart-item-btn fw-semibold pe-0 action-color-text-4"><span class="isax isax-close-circle"></span></button>
+                </div>
+              </div>
+            </li>
+          } @empty {
+            <app-empty-data [name]="'No Items in Cart'" [description]="'There is no data found for this visual.'" [icon]="'isax-shopping-cart'"></app-empty-data>
+          }
+        </ul>
+        @if(cart.length) {
+          <div class="">
+            <button class="btn btn-primary w-100 d-flex justify-content-between" [routerLink]="['/services/cart']" routerLinkActive="router-link-active" >View Cart <span>₹{{totalPrice}}</span></button>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</div>
+
+

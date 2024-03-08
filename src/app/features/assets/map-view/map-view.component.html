@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-lg-8">
+    <div class="mx-n4 mx-lg-n6 ms-xl-0 h-100">
+      <div class="h-100 w-100">
+        <app-map-card></app-map-card>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-4">
+    <div class="row gy-3">
+      @for (item of data; track item.name) {
+        <div class="col-lg-6 px-2">
+          <app-asset-card [data]="item"></app-asset-card>
+        </div>
+      } @empty {
+        <div> There are no items. </div>
+      }
+
+    </div>
+  </div>
+</div>
+

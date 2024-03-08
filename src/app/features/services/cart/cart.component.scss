@@ -1,0 +1,20 @@
+.cart-list {
+  list-style: none;
+  .remove-cart-item-btn {
+    border: 0;
+    background: no-repeat;
+    display: flex;
+  }
+}
+.or-use-map {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 140%;
+  color: #7C8FAC;
+  span {
+    color: #5D87FF;
+    cursor: pointer;
+  }
+}

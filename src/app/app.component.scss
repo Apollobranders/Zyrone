@@ -1,0 +1,22 @@
+// main#top {
+//   padding: 0 15px;
+// }
+@media(min-width: 992px) {
+  main > .layout {
+    min-height: 100vh;
+    margin-left: 234px;
+  }
+}
+@media(max-width: 991px) {
+  main > .layout {
+    margin-left: 260px;
+  }
+}
+@media(max-width: 768px) {
+  main > .layout {
+    margin-left: 0 !important;
+  }
+}
+.main {
+  background-color: var(--mc-primary-body-primary);
+}

@@ -1,0 +1,67 @@
+.user-profile-menu-card {
+  h5 {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 120%;
+  }
+  h6 {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 140%;
+  letter-spacing: -0.01em;
+  }
+  p {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 140%;
+  }
+}
+
+.profile-menu-list {
+  row-gap: 20px;
+  .profile-icon-bx {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    .isax {
+      font-size: 20px;
+    }
+  }
+  .profile-menu-content {
+    width: 100%;
+    padding-left: 14px;
+    .list-title {
+      font-family: var(--mc-font-family-Jakarta);
+      font-style: normal;
+      line-height: 140%;
+    }
+    p {
+      font-family: var(--mc-font-family-Jakarta);
+      font-style: normal;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 140%;
+      margin-bottom: 0;
+    }
+  }
+}
+
+.profile-menu-logout-btn {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 140%;
+  color: #FFFFFF;
+}

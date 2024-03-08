@@ -1,0 +1,19 @@
+<div class="d-flex justify-content-center align-items-center">
+  <div echarts [options]="chartOption" class="half-doughnut-chart" (chartInit)="chartInit()" style="height: 200px; width: 200px;"></div>
+  <div echarts [options]="chartOption2" class="half-doughnut-chart" style="height: 200px; width: 200px;"></div>
+  <div class="graph-middle-content position-absolute">
+    @if(icon == 'temperature') {
+      <span class="isax {{icon}}">
+        <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10.8337 14.6631L11.084 15.0959L11.3337 14.9515V14.6631H10.8337ZM15.167 14.6631H14.667V14.9515L14.9166 15.0959L15.167 14.6631ZM11.3337 5.25C11.3337 4.42157 12.0052 3.75 12.8337 3.75V2.75C11.4529 2.75 10.3337 3.86929 10.3337 5.25H11.3337ZM11.3337 14.6631V5.25H10.3337V14.6631H11.3337ZM10.5833 14.2303C9.13991 15.0652 8.16699 16.627 8.16699 18.4167H9.16699C9.16699 16.9984 9.93693 15.7594 11.084 15.0959L10.5833 14.2303ZM8.16699 18.4167C8.16699 21.086 10.3309 23.25 13.0003 23.25V22.25C10.8832 22.25 9.16699 20.5338 9.16699 18.4167H8.16699ZM13.0003 23.25C15.6697 23.25 17.8337 21.086 17.8337 18.4167H16.8337C16.8337 20.5338 15.1174 22.25 13.0003 22.25V23.25ZM17.8337 18.4167C17.8337 16.627 16.8607 15.0652 15.4174 14.2303L14.9166 15.0959C16.0637 15.7594 16.8337 16.9984 16.8337 18.4167H17.8337ZM14.667 5.25V14.6631H15.667V5.25H14.667ZM13.167 3.75C13.9954 3.75 14.667 4.42157 14.667 5.25H15.667C15.667 3.86929 14.5477 2.75 13.167 2.75V3.75ZM12.8337 3.75H13.167V2.75H12.8337V3.75Z" fill="#2A3547"/>
+          <rect x="10.833" y="16.25" width="4.33333" height="4.33333" rx="2" fill="#2A3547"/>
+        </svg>
+      </span>
+    } @else {
+      <span class="isax {{icon}}"></span>
+    }
+
+    <span class="text-body-secondary fw-normal font-chart-sm">{{text}}</span>
+    {{label}}
+  </div>
+</div>

@@ -1,0 +1,28 @@
+<div class="card asset-card p-3">
+  <div class="asset-item-card">
+    <div class="d-flex align-items-center">
+      <div class="asset-item-icon" [ngStyle]="{'background-color': data.type == 1?'var(--mc-action-light-color-1)':'var(--mc-action-light-color-3)', 'color': data.type == 1?'var(--mc-action-color-1)':'var(--mc-action-color-3)'}">
+        <span class="isax isax-battery-charging" ></span>
+      </div>
+      <div class="asset-item-content">
+        <div class="fs-10 fw-semibold text-body-emphasis list-title">Asset Name</div>
+        <p class="fs-10 text-body-tertiary mb-0">Type {{data.type}}</p>
+      </div>
+    </div>
+    <hr />
+    <ul class="asset-list">
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        <span class="isax isax-location action-color-text-5"></span>
+        <p class="fs-10 text-body-tertiary mb-0">Ahmedabad, India</p>
+      </li>
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        <span class="isax isax-battery-charging action-color-text-5"></span>
+        <p class="fs-10 text-body-tertiary fw-semibold mb-0">27</p>
+      </li>
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        <span class="isax isax-health action-color-text-5"></span>
+        <p class="fs-10 text-body-tertiary mb-0">01:45 &nbsp;&nbsp; 25/08/2023</p>
+      </li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,617 @@
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/variables-dark";
+
+$custom-colors: (
+  "mc-card-bg": #fff
+);
+
+$theme-colors: map-merge($theme-colors, $custom-colors);
+
+@import "../node_modules/bootstrap/scss/maps";
+@import "../node_modules/bootstrap/scss/mixins";
+@import "../node_modules/bootstrap/scss/utilities";
+
+// Light mode
+$custom-colors-text: ("mc-card-bg": #fff);
+$custom-colors-bg-subtle: ("mc-card-bg": #fff);
+$custom-colors-border-subtle: ("mc-card-bg": #fff);
+
+$theme-colors-text: map-merge($theme-colors-text, $custom-colors-text);
+$theme-colors-bg-subtle: map-merge($theme-colors-bg-subtle, $custom-colors-bg-subtle);
+$theme-colors-border-subtle: map-merge($theme-colors-border-subtle, $custom-colors-border-subtle);
+
+// Dark mode
+$custom-colors-text-dark: ("mc-card-bg": #2A3547);
+$custom-colors-bg-subtle-dark: ("mc-card-bg": #2A3547);
+$custom-colors-border-subtle-dark: ("mc-card-bg": #2A3547);
+
+$theme-colors-text-dark: map-merge($theme-colors-text-dark, $custom-colors-text-dark);
+$theme-colors-bg-subtle-dark: map-merge($theme-colors-bg-subtle-dark, $custom-colors-bg-subtle-dark);
+$theme-colors-border-subtle-dark: map-merge($theme-colors-border-subtle-dark, $custom-colors-border-subtle-dark);
+
+$white: #fff;
+$black: #000;
+$primary: #5D87FF;
+$secondary:#ECF2FF;
+$danger: #F85529;
+
+
+@import "../node_modules/bootstrap/scss/root";
+@import "../node_modules/bootstrap/scss/reboot";
+
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&family=Noto+Color+Emoji&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+
+@import "./assets/iconsax";
+:root {
+  --mc-font-family-Jakarta: 'Plus Jakarta Sans';
+  --mc-primary-body-primary: #FAFAFA;
+  --mc-primary-1: #5D87FF;
+  --mc-primary-2: #ECF2FF;
+  --mc-secondary-1: #49BEFF;
+  --mc-secondary-2: #E8F7FF;
+  --mc-text-body-primary: #2A3547;
+  --mc-text-body-secondary: #5A6A85;
+  --mc-bg-body-secondary: #F2F6FA;
+  --mc-border-body-secondary: #DFE5EF;
+  --mc-theme-control-toggle-bg: #000;
+  --mc-theme-control-toggle-hover-bg: #5D87FF;
+  --mc-navbar-top-height: 4rem;
+  --mc-action-color-1: #13DEB9;
+  --mc-action-color-2: #FFD965;
+  --mc-action-color-3: #FF8C1A;
+  --mc-action-color-4: #F85529;
+  --mc-action-color-5: #539BFF;
+  --mc-action-light-color-1: #E6FFFA;
+  --mc-action-light-color-2: #FFFAE8;
+  --mc-action-light-color-3: #FFE8D1 ;
+  --mc-action-light-color-4: #FEDDD4;
+  --mc-action-light-color-5: #EBF3FE;
+  --mc-card-divider-color: #EAEFF4;
+  --mc-border-color: #EAEFF4;
+  --mc-dropdown-link-active-bg: #F5F5F5;
+}
+
+[data-bs-theme="dark"] {
+  --mc-font-family-Jakarta: 'Plus Jakarta Sans';
+  --mc-primary-body-primary: #202936;
+  --mc-primary-1: #5D87FF;
+  --mc-primary-2: #202936;
+  --mc-secondary-1: #49BEFF;
+  --mc-secondary-2: #202936;
+  --mc-text-body-primary: #fff;
+  --mc-text-body-secondary: #7C8FAC;
+  --mc-bg-body-secondary: #202936;
+  --mc-border-body-secondary: #5A6A85;
+  --mc-theme-control-toggle-bg: #000;
+  --mc-theme-control-toggle-hover-bg: #5D87FF;
+  --mc-navbar-top-height: 4rem;
+  --mc-action-color-1: #13DEB9;
+  --mc-action-color-2: #FFD965;
+  --mc-action-color-3: #FF8C1A;
+  --mc-action-color-4: #F85529;
+  --mc-action-color-5: #539BFF;
+  --mc-action-light-color-1: #202936;
+  --mc-action-light-color-2: #202936;
+  --mc-action-light-color-3: #202936 ;
+  --mc-action-light-color-4: #202936;
+  --mc-action-light-color-5: #202936;
+  --mc-card-divider-color: #5A6A85;
+  --mc-border-color: #2A3547;
+  --mc-dropdown-link-active-bg: #f5f5f51a;
+}
+
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: var(--mc-font-family-Jakarta), "Helvetica Neue", sans-serif;
+}
+.mat-h5, .mat-typography .mat-h5, .mat-typography h5 {
+  font-family: var(--mc-font-family-Jakarta), "Helvetica Neue", sans-serif;
+  margin: 0;
+}
+.mat-body, .mat-body-2, .mat-typography .mat-body, .mat-typography .mat-body-2, .mat-typography {
+  font-family: var(--mc-font-family-Jakarta), "Helvetica Neue", sans-serif;
+}
+.cdk-overlay-container {
+  z-index: 1020;
+  div.mat-mdc-autocomplete-panel {
+    min-width: auto;
+    padding: 6px 0px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 2px rgba(145, 158, 171, 0.2), 0px 12px 24px -4px rgba(145, 158, 171, 0.12);
+    border-radius: 4px;
+    border: 0;
+    .mat-mdc-option {
+      padding-left: 0;
+      min-height: auto;
+    }
+    .mat-mdc-option .mdc-list-item__primary-text {
+      font-family: "Plus Jakarta Sans";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 12px;
+      line-height: 140%;
+      color: #7C8FAC;
+      display: flex;
+      align-items: center;
+      gap: 0 10px;
+      padding: 6px 12px;
+      min-height: 38px;
+    }
+    .mat-pseudo-checkbox-minimal.mat-pseudo-checkbox-checked::after, .mat-pseudo-checkbox-minimal.mat-pseudo-checkbox-indeterminate::after {
+      color: #5D87FF;
+    }
+
+  }
+}
+::ng-deep .mdc-line-ripple {
+  display: none;
+}
+
+// Actions Colors
+.action-color-text-1 {
+  color: var(--mc-action-color-1);
+}
+.action-color-text-2 {
+  color: var(--mc-action-color-2);
+}
+.action-color-text-3 {
+  color: var(--mc-action-color-3);
+}
+.action-color-text-4 {
+  color: var(--mc-action-color-4);
+}
+.action-color-text-5 {
+  color: var(--mc-action-color-5);
+}
+.action-color-bg-1 {
+  background-color: var(--mc-action-color-1);
+}
+.action-color-bg-2 {
+  background-color: var(--mc-action-color-2);
+}
+.action-color-bg-3 {
+  background-color: var(--mc-action-color-3);
+}
+.action-color-bg-4 {
+  background-color: var(--mc-action-color-4);
+}
+.action-color-bg-5 {
+  background-color: var(--mc-action-color-5);
+}
+
+.action-light-color-text-1 {
+  color: var(--mc-action-light-color-1);
+}
+.action-light-color-text-2 {
+  color: var(--mc-action-light-color-2);
+}
+.action-light-color-text-3 {
+  color: var(--mc-action-light-color-3);
+}
+.action-light-color-text-4 {
+  color: var(--mc-action-light-color-4);
+}
+.action-light-color-text-5 {
+  color: var(--mc-action-light-color-5);
+}
+.action-light-color-bg-1 {
+  background-color: var(--mc-action-light-color-1);
+}
+.action-light-color-bg-2 {
+  background-color: var(--mc-action-light-color-2);
+}
+.action-light-color-bg-3 {
+  background-color: var(--mc-action-light-color-3);
+}
+.action-light-color-bg-4 {
+  background-color: var(--mc-action-light-color-4);
+}
+.action-light-color-bg-5 {
+  background-color: var(--mc-action-light-color-5);
+}
+
+// Bootsrap Overwrite Theme CSS
+.btn {
+  border-radius: 3px;
+}
+.btn-primary {
+  @include button-variant($primary, $primary, $white, lighten($primary,0%), $primary, $white);
+}
+.btn-secondary {
+  @include button-variant($secondary, $secondary, $black, lighten($secondary,0%), $secondary, $black);
+}
+.btn-danger {
+  @include button-variant($danger, $danger, $white, lighten($danger,0%), $danger, $white);
+}
+.text-body-emphasis {
+  color: var(--mc-text-body-primary) !important;
+}
+.text-body-tertiary {
+  color: var(--mc-text-body-secondary) !important;
+}
+.bg-primary {
+  background-color:var(--mc-primary-1) !important;
+}
+.bg-secondary {
+  background-color: var(--mc-secondary-1) !important;
+}
+.card {
+  --bs-card-bg: var(--bs-mc-card-bg-text-emphasis);
+  box-shadow: 0px 12px 24px -4px #919EAB1F;
+ // box-shadow: 0px 0px 2px 0px #919EAB33;
+  border: 0;
+}
+
+
+@include color-mode(dark) {
+  .element {
+    .card {
+      background-color: #fff;
+    }
+  }
+}
+hr {
+  border-color: var(--mc-card-divider-color);
+  opacity: 1;
+}
+.progress, .progress-stacked {
+  --bs-progress-height: 8px;
+}
+
+// Typography
+.fs-8 {
+  font-size: 1rem !important;
+}
+.fs-10 {
+  font-size: 12px;
+}
+h5 {
+  font-size: 16px;
+}
+
+// Buttons
+.btn-link {
+  font-family: var(--mc-font-family-Jakarta);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 140%;
+  letter-spacing: -0.01em;
+  color: #5D87FF;
+  text-decoration: none;
+}
+
+.scrollbar, .offcanvas.faq-sidebar, .tox .tox-toolbar--scrolling, .picmo__picker.picmo__picker .picmo__emojiArea, .navbar-vertical .navbar-vertical-content, .scrollbar-overlay {
+  overflow: auto;
+}
+
+.e-graph {
+  height: 172px;
+  align-items: center;
+  .graph-middle-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: var(--mc-font-family-Jakarta);
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 120%;
+    .font-chart-sm {
+      font-family: 'Plus Jakarta Sans';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 140%;
+    }
+  }
+}
+
+.form-select {
+  // padding: 6px 8px 6px 16px;
+  height: 32px;
+  background-color: var(--mc-bg-body-secondary);
+  border: 1px solid var(--mc-border-body-secondary);
+  border-radius: 3px;
+  font-family: var(--mc-font-family-Jakarta);
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 140%;
+  color: #7C8FAC;
+  position: relative;
+  z-index: 1;
+  text-align: left;
+  & + .dropdown-menu {
+    min-width: auto;
+    padding: 6px 0px;
+    width: 104px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 2px rgba(145, 158, 171, 0.2), 0px 12px 24px -4px rgba(145, 158, 171, 0.12);
+    border-radius: 4px;
+    border: 0;
+    li > a {
+      font-family: 'Plus Jakarta Sans';
+      font-style: normal;
+      font-weight: 600;
+      font-size: 12px;
+      line-height: 140%;
+      color: #7C8FAC;
+      display: flex;
+      align-items: center;
+      gap: 0 10px;
+      padding: 6px 12px;
+      min-height: 38px;
+      &.active {
+        background-color: var(--mc-dropdown-link-active-bg);
+      }
+    }
+  }
+}
+
+.navbar-vertical {
+  position: fixed;
+  display: inline-block;
+  z-index: 1020;
+  padding: 0;
+  width: 100vw;
+  @media(min-width: 992px) {
+    &.navbar-expand-lg {
+      width: 234px;
+      border-right: 1px solid var(--mc-border-color);
+      margin: 0;
+      -webkit-transition: width .2s ease;
+      -o-transition: width .2s ease;
+      transition: width .2s ease
+    }
+  }
+  @media(max-width: 991px) {
+    &.navbar-expand-lg {
+      width: 260px;
+      border-right: 1px solid var(--mc-border-color);
+      margin: 0;
+      -webkit-transition: width .2s ease;
+      -o-transition: width .2s ease;
+      transition: width .2s ease;
+      .navbar-collapse {
+        display: flex !important;
+      }
+    }
+  }
+  @media(max-width: 768px) {
+    &.navbar-expand-lg {
+      width: 100%;
+      background: #fff;
+    }
+  }
+
+  .navbar-vertical-content {
+    padding: 1rem 1.25rem;
+    overflow-y: auto;
+    hr {
+      border-color: var(--mc-border-color);
+    }
+  }
+  .navbar-vertical-content {
+    .navbar-nav {
+      .nav-link {
+        word-break: break-word;
+        line-height: 1.188rem;
+        padding-left: 1.5rem;
+        white-space: nowrap;
+        color: var(--mc-navbar-vertical-link-color);
+        padding: 10px 12px;
+        font-family: 'Plus Jakarta Sans';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 140%;
+        letter-spacing: -0.02em;
+        color: #5A6A85;
+        &.active {
+          background: #5D87FF;
+          border-radius: 6px;
+          color: #fff;
+        }
+
+      }
+    }
+  }
+
+}
+
+.navbar-vertical-collapsed {
+  .navbar-vertical {
+    @media(max-width: 991px) {
+      &.navbar-expand-lg {
+        transform: translate(-100%, 0);
+        -webkit-transition: width .2s ease;
+        -o-transition: width .2s ease;
+        transition: width .2s ease
+      }
+    }
+    .nav-link-icon {
+      margin-right: 0 !important;
+    }
+  }
+  @media(max-width: 991px) {
+    .layout {
+      margin-left: 0 !important;
+    }
+  }
+}
+
+
+@media(min-width: 992px) {
+  .navbar-vertical-collapsed {
+    .navbar-vertical {
+      // position: absolute;
+      top: 0;
+      height: auto;
+      min-height: 100%;
+      padding-bottom: 0;
+      width: 88px;
+      .navbar-vertical-content {
+        padding: 1rem 0;
+        //overflow: hidden;
+        .sidebar-logo {
+          .logo-text {
+            display: none !important;
+          }
+        }
+        .avatar {
+          width: 34px;
+          height: 34px;
+          img {
+            object-fit: cover;
+            max-width: 100%;
+            max-height: 100%;
+          }
+        }
+        .avatar ~ h6, .avatar ~ p {
+          display: none;
+        }
+        .navbar-nav {
+          margin-top: 60px;
+          p {
+            text-align: center;
+            padding-left: 0 !important;
+          }
+        }
+
+      }
+      .nav-item-wrapper {
+        position: relative;
+        display: block;
+        padding: 0 20px;
+        .nav-link-text-wrapper {
+          display: none;
+        }
+      }
+      .navbar-vertical-content .navbar-nav .nav-link.label-1 {
+        padding-left: .75rem
+      }
+    }
+    .layout {
+      margin-left: 88px !important;
+    }
+
+  }
+}
+
+.collapsing {
+  height: unset;
+  overflow: unset;
+  transition: unset;
+}
+
+
+
+
+
+/*-----------------------------------------------
+|   Scrollbar style for windows
+-----------------------------------------------*/
+.scrollbar::-webkit-scrollbar, .offcanvas.faq-sidebar::-webkit-scrollbar, .tox .tox-toolbar--scrolling::-webkit-scrollbar, .picmo__picker.picmo__picker .picmo__emojiArea::-webkit-scrollbar, html:not(.navbar-vertical-collapsed) .navbar-vertical .navbar-vertical-content::-webkit-scrollbar,
+.scrollbar-overlay::-webkit-scrollbar {
+  visibility: hidden;
+  -webkit-appearance: none;
+  width: 6px;
+  height: 6px;
+  background-color: transparent;
+}
+.scrollbar::-webkit-scrollbar-thumb, .offcanvas.faq-sidebar::-webkit-scrollbar-thumb, .tox .tox-toolbar--scrolling::-webkit-scrollbar-thumb, .picmo__picker.picmo__picker .picmo__emojiArea::-webkit-scrollbar-thumb, html:not(.navbar-vertical-collapsed) .navbar-vertical .navbar-vertical-content::-webkit-scrollbar-thumb,
+.scrollbar-overlay::-webkit-scrollbar-thumb {
+  visibility: hidden;
+  border-radius: 3px;
+  background-color: rgba(159, 166, 188, 0.55);
+}
+.scrollbar:hover::-webkit-scrollbar, .offcanvas.faq-sidebar:hover::-webkit-scrollbar, .tox .tox-toolbar--scrolling:hover::-webkit-scrollbar, .picmo__picker.picmo__picker .picmo__emojiArea:hover::-webkit-scrollbar, html:not(.navbar-vertical-collapsed) .navbar-vertical .navbar-vertical-content:hover::-webkit-scrollbar, .scrollbar:hover::-webkit-scrollbar-thumb, .offcanvas.faq-sidebar:hover::-webkit-scrollbar-thumb, .tox .tox-toolbar--scrolling:hover::-webkit-scrollbar-thumb, .picmo__picker.picmo__picker .picmo__emojiArea:hover::-webkit-scrollbar-thumb, html:not(.navbar-vertical-collapsed) .navbar-vertical .navbar-vertical-content:hover::-webkit-scrollbar-thumb, .scrollbar:focus::-webkit-scrollbar, .offcanvas.faq-sidebar:focus::-webkit-scrollbar, .tox .tox-toolbar--scrolling:focus::-webkit-scrollbar, .picmo__picker.picmo__picker .picmo__emojiArea:focus::-webkit-scrollbar, html:not(.navbar-vertical-collapsed) .navbar-vertical .navbar-vertical-content:focus::-webkit-scrollbar, .scrollbar:focus::-webkit-scrollbar-thumb, .offcanvas.faq-sidebar:focus::-webkit-scrollbar-thumb, .tox .tox-toolbar--scrolling:focus::-webkit-scrollbar-thumb, .picmo__picker.picmo__picker .picmo__emojiArea:focus::-webkit-scrollbar-thumb, html:not(.navbar-vertical-collapsed) .navbar-vertical .navbar-vertical-content:focus::-webkit-scrollbar-thumb,
+.scrollbar-overlay:hover::-webkit-scrollbar,
+.scrollbar-overlay:hover::-webkit-scrollbar-thumb,
+.scrollbar-overlay:focus::-webkit-scrollbar,
+.scrollbar-overlay:focus::-webkit-scrollbar-thumb {
+  visibility: visible;
+}
+.navbar-vibrant .scrollbar::-webkit-scrollbar, .navbar-vibrant .offcanvas.faq-sidebar::-webkit-scrollbar, .navbar-vibrant .tox .tox-toolbar--scrolling::-webkit-scrollbar, .tox .navbar-vibrant .tox-toolbar--scrolling::-webkit-scrollbar, .navbar-vibrant .picmo__picker.picmo__picker .picmo__emojiArea::-webkit-scrollbar, .picmo__picker.picmo__picker .navbar-vibrant .picmo__emojiArea::-webkit-scrollbar, .navbar-vibrant html:not(.navbar-vertical-collapsed) .navbar-vertical .navbar-vertical-content::-webkit-scrollbar, html:not(.navbar-vertical-collapsed) .navbar-vertical .navbar-vibrant .navbar-vertical-content::-webkit-scrollbar {
+  visibility: hidden;
+  -webkit-appearance: none;
+  width: 6px;
+  height: 6px;
+  background-color: transparent;
+}
+.navbar-vibrant .scrollbar::-webkit-scrollbar-thumb, .navbar-vibrant .offcanvas.faq-sidebar::-webkit-scrollbar-thumb, .navbar-vibrant .tox .tox-toolbar--scrolling::-webkit-scrollbar-thumb, .tox .navbar-vibrant .tox-toolbar--scrolling::-webkit-scrollbar-thumb, .navbar-vibrant .picmo__picker.picmo__picker .picmo__emojiArea::-webkit-scrollbar-thumb, .picmo__picker.picmo__picker .navbar-vibrant .picmo__emojiArea::-webkit-scrollbar-thumb, .navbar-vibrant html:not(.navbar-vertical-collapsed) .navbar-vertical .navbar-vertical-content::-webkit-scrollbar-thumb, html:not(.navbar-vertical-collapsed) .navbar-vertical .navbar-vibrant .navbar-vertical-content::-webkit-scrollbar-thumb {
+  visibility: hidden;
+  border-radius: 3px;
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+// Graphs Styles
+.card-body .card-title {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 120%;
+  margin-bottom: 6px;
+}
+
+.card-body .card-title + h6 {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 140%;
+}
+.lagend-list {
+  list-style: none;
+  padding: 0 15px;
+  display: flex;
+  justify-content: space-around;
+  .list-item {
+    font-family: var(--mc-font-family-Jakarta);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 140%;
+    color: var(--mc-text-body-secondary);
+    .lagend-icon {
+      width: 10px;
+      height: 10px;
+      display: inline-block;
+      border-radius: 50%;
+    }
+  }
+}
+
+.card-with-icon {
+  .card-subtitle {
+    font-family: var(--mc-font-family-Jakarta);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 140%;
+    color: #5A6A85;
+  }
+  .card-title {
+    font-family: var(--mc-font-family-Jakarta);
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 120%;
+  }
+  .card-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+    margin-top: 5px;
+  }
+}

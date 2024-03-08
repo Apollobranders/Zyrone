@@ -1,0 +1,76 @@
+.categories-list {
+  gap: 20px;
+  li {
+    padding: 8px;
+    border: 1px solid transparent;
+    &.selected {
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      background: #ECF2FF;
+      border-color: #5D87FF;
+      border-radius: 12px;
+    }
+  }
+  .category-thumbnail {
+    img {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+  }
+}
+
+.add-service-list {
+  .service-list-item {
+    padding: 20px;
+    background: #F2F6FA;
+    border-radius: 12px;
+
+    .service-thumbnail {
+      img {
+        width: 128px;
+        height: 128px;
+        border-radius: 8px;
+        object-fit: cover;
+      }
+      & + .remove-btn {
+        position: absolute;
+        bottom: -15px;
+      }
+    }
+  }
+}
+
+.service-content-list {
+  ::ng-deep ul {
+    list-style: disc;
+    font-family: 'Plus Jakarta Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 180%;
+    color: #5A6A85;
+    padding: 12px 16px;
+  }
+}
+.cart-list {
+  min-height: 300px;
+  .remove-cart-item-btn {
+    border: 0;
+    background: no-repeat;
+    display: flex;
+  }
+}
+
+.talk-card {
+  height: 467px;
+  background-color: var(--mc-action-light-color-5);
+  border-radius: 12px;
+  background-image: url(/assets/img/helper.png);
+  background-position: 0 128%;
+    background-size: contain;
+    background-repeat: no-repeat;
+}

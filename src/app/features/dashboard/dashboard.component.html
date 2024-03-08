@@ -1,0 +1,493 @@
+<div class="row gy-3 gy-lg-0">
+  <div class="col-lg-6">
+    <div class="row gy-3 gy-lg-0 dashboard-cards-wrapper">
+      <div class="col-lg-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title fw-semibold">State of Charge</h5>
+            <h6 class="fs-10 text-body-tertiary card-subtitle mb-2">Overview</h6>
+          </div>
+          <div class="e-graph d-flex justify-content-center">
+            <app-doughnut-chart *ngIf="state_of_charges_data" label="SoC" icon="isax-battery-full" [colors]="colors" [data]="state_of_charges_data"></app-doughnut-chart>
+          </div>
+          <hr />
+          <ul class="lagend-list">
+            <li class="list-item">
+              <span class="lagend-icon action-color-bg-4"></span> Low
+            </li>
+            <li class="list-item">
+              <span class="lagend-icon action-color-bg-3"></span> Warning
+            </li>
+            <li class="list-item">
+              <span class="lagend-icon action-color-bg-2"></span> Moderate
+            </li>
+            <li class="list-item">
+              <span class="lagend-icon action-color-bg-1"></span> Full
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title fw-semibold">State of Health</h5>
+            <h6 class="fs-10 text-body-tertiary card-subtitle mb-2">Overview</h6>
+          </div>
+          <div class="e-graph d-flex justify-content-center">
+            <app-doughnut-chart *ngIf="state_of_charges_data" label="SoH" icon="isax-heart" [colors]="colors" [data]="state_of_health_data"></app-doughnut-chart>
+          </div>
+          <hr />
+          <ul class="lagend-list">
+            <li class="list-item">
+              <span class="lagend-icon action-color-bg-4"></span> Low
+            </li>
+            <li class="list-item">
+              <span class="lagend-icon action-color-bg-3"></span> Warning
+            </li>
+            <li class="list-item">
+              <span class="lagend-icon action-color-bg-2"></span> Moderate
+            </li>
+            <li class="list-item">
+              <span class="lagend-icon action-color-bg-1"></span> Full
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6">
+    <div class="row gy-3 gy-lg-0 dashboard-cards-wrapper">
+      <div class="col-lg-6">
+        <div class="row h-100 gy-3 gy-lg-0">
+          <div class="col-lg-6">
+            <div class="card card-with-icon">
+              <div class="card-body">
+                <div class="card-icon" style="background-color: var(--mc-secondary-2); color: var(--mc-secondary-1);">
+                  <span class="isax isax-external-drive"></span>
+                </div>
+                <div class="card-subtitle">Total Assets</div>
+                <div class="card-title">100</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="card card-with-icon">
+              <div class="card-body">
+                <div class="card-icon" style="background-color: var(--mc-action-light-color-1); color: var(--mc-action-color-1);">
+                  <span class="isax isax-location"></span>
+                </div>
+                <div class="card-subtitle">Total Sites</div>
+                <div class="card-title">10</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 align-self-end">
+            <div class="card card-with-icon">
+              <div class="card-body">
+                <div class="card-icon" style="background-color: var(--mc-action-light-color-3); color: var(--mc-action-color-3);">
+                  <span class="isax isax-battery-charging"></span>
+                </div>
+                <div class="card-subtitle">Batteries</div>
+                <div class="card-title">1000</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 align-self-end">
+            <div class="card card-with-icon">
+              <div class="card-body">
+                <div class="card-icon" style="background-color: var(--mc-action-light-color-5); color: var(--mc-action-color-5);">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15.0006 22.7498H9.00063C7.68063 22.7498 6.58063 22.6198 5.65063 22.3398C5.31063 22.2398 5.09063 21.9098 5.11063 21.5598C5.36063 18.5698 8.39063 16.2197 12.0006 16.2197C15.6106 16.2197 18.6306 18.5598 18.8906 21.5598C18.9206 21.9198 18.7006 22.2398 18.3506 22.3398C17.4206 22.6198 16.3206 22.7498 15.0006 22.7498ZM6.72063 21.0598C7.38063 21.1898 8.13063 21.2498 9.00063 21.2498H15.0006C15.8706 21.2498 16.6206 21.1898 17.2806 21.0598C16.7506 19.1398 14.5606 17.7197 12.0006 17.7197C9.44063 17.7197 7.25063 19.1398 6.72063 21.0598Z" fill="#539BFF"/>
+                    <path d="M15 2H9C4 2 2 4 2 9V15C2 18.78 3.14 20.85 5.86 21.62C6.08 19.02 8.75 16.97 12 16.97C15.25 16.97 17.92 19.02 18.14 21.62C20.86 20.85 22 18.78 22 15V9C22 4 20 2 15 2ZM12 14.17C10.02 14.17 8.42 12.56 8.42 10.58C8.42 8.60002 10.02 7 12 7C13.98 7 15.58 8.60002 15.58 10.58C15.58 12.56 13.98 14.17 12 14.17Z" stroke="#539BFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M11.9999 14.92C9.60992 14.92 7.66992 12.97 7.66992 10.58C7.66992 8.19002 9.60992 6.25 11.9999 6.25C14.3899 6.25 16.3299 8.19002 16.3299 10.58C16.3299 12.97 14.3899 14.92 11.9999 14.92ZM11.9999 7.75C10.4399 7.75 9.16992 9.02002 9.16992 10.58C9.16992 12.15 10.4399 13.42 11.9999 13.42C13.5599 13.42 14.8299 12.15 14.8299 10.58C14.8299 9.02002 13.5599 7.75 11.9999 7.75Z" fill="#539BFF"/>
+                  </svg>
+                </div>
+                <div class="card-subtitle">Total Users</div>
+                <div class="card-title">10</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title fw-semibold">Alerts Count</h5>
+            <h6 class="fs-10 text-body-tertiary card-subtitle mb-2">Overview</h6>
+          </div>
+          <div class="e-graph d-flex justify-content-center">
+            <app-multi-doughnut-chart *ngIf="state_of_charges_data" label="120" text="alert" icon="isax-danger" [data]="state_of_health_data"></app-multi-doughnut-chart>
+          </div>
+          <hr />
+          <ul class="lagend-list">
+            <li class="list-item">
+              <span class="lagend-icon action-color-bg-4"></span> High Risk
+            </li>
+            <li class="list-item">
+              <span class="lagend-icon action-color-bg-3"></span> Moderate Risk
+            </li>
+            <li class="list-item">
+              <span class="lagend-icon action-color-bg-1"></span> Low Risk
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row mt-2 mt-lg-4 pb-4 gy-3 gy-lg-0">
+  <div class="col-lg-9">
+    <div class="row gy-3 gy-lg-0">
+      <div class="col-lg-8">
+        <div class="card pb-4">
+          <div class="card-body">
+            <div class="d-flex align-items-start justify-content-between">
+              <div>
+                <h5 class="card-title fw-semibold">Daily Alerts</h5>
+                <h6 class="fs-10 text-body-tertiary card-subtitle mb-2">Overview</h6>
+              </div>
+              <select class="form-select form-select-sm" id="select-ad-forcast-month">
+                <option>Day</option>
+                <option>Week</option>
+                <option>Month</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="e-graph d-flex justify-content-center">
+            <app-bar-chart [type]="'time'" [data]="daily_alerts_data"></app-bar-chart>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title fw-semibold">Site Alerts</h5>
+            <h6 class="fs-10 text-body-tertiary card-subtitle mb-2">Overview</h6>
+            <ul class="list-group site-alert-list">
+              <li class="d-flex justify-content-between align-items-center">
+                <div class="w-100 ">
+                  <div class="d-flex justify-content-between align-items-center">
+                    Site Name 1
+                    <span class="badge text-body-emphasis">60</span>
+                  </div>
+                  <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
+                    <div class="progress-bar bg-secondary" style="width: 60%"></div>
+                  </div>
+                </div>
+              </li>
+              <li class="d-flex justify-content-between align-items-center">
+                <div class="w-100 ">
+                  <div class="d-flex justify-content-between align-items-center">
+                    Site Name 2
+                    <span class="badge text-body-emphasis">40</span>
+                  </div>
+                  <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">
+                    <div class="progress-bar bg-secondary" style="width: 40%"></div>
+                  </div>
+                </div>
+              </li>
+              <li class="d-flex justify-content-between align-items-center">
+                <div class="w-100 ">
+                  <div class="d-flex justify-content-between align-items-center">
+                    Site Name 3
+                    <span class="badge text-body-emphasis">20</span>
+                  </div>
+                  <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                    <div class="progress-bar bg-secondary" style="width: 20%"></div>
+                  </div>
+                </div>
+              </li>
+              <li class="d-flex justify-content-between align-items-center">
+                <div class="w-100 ">
+                  <div class="d-flex justify-content-between align-items-center">
+                    Site Name 4
+                    <span class="badge text-body-emphasis">10</span>
+                  </div>
+                  <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">
+                    <div class="progress-bar bg-secondary" style="width: 10%"></div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row gy-3 gy-lg-0 mt-2 mt-lg-4">
+      <div class="col-lg-6">
+        <div class="card pb-4 h-100">
+          <div class="card-body">
+            <div class="d-flex align-items-start justify-content-between">
+              <div>
+                <h5 class="card-title fw-semibold">Recent Events</h5>
+                <h6 class="fs-10 text-body-tertiary card-subtitle mb-2">Overview</h6>
+              </div>
+              <a href="javascript:void(0)" routerLink="/notifications/events" class="btn-link">View All</a>
+            </div>
+            <ul class="list-group top-alert-list mt-4">
+              <li class="d-flex justify-content-between align-items-center">
+                <div class="d-flex align-items-center">
+                  <div class="top-alert-icon action-light-color-bg-5">
+                    <span class="isax isax-battery-disable action-color-text-5"></span>
+                  </div>
+                  <div class="top-alert-content">
+                    <div class="fs-10 fw-semibold text-body-emphasis list-title">Charger turned off.</div>
+                    <p class="fs-10 text-body-tertiary mb-0">Ahmedabad</p>
+                  </div>
+                </div>
+                <div class="top-alert-time">
+                  <p class="fs-10 text-body-tertiary mb-0">01:45 &nbsp;&nbsp; 25/08/2023</p>
+                </div>
+              </li>
+              <li class="d-flex justify-content-between align-items-center">
+                <div class="d-flex align-items-center">
+                  <div class="top-alert-icon action-light-color-bg-5">
+                    <span class="isax isax-monitor action-color-text-5"></span>
+                  </div>
+                  <div class="top-alert-content">
+                    <div class="fs-10 fw-semibold text-body-emphasis list-title">New monitor setup started.</div>
+                    <p class="fs-10 text-body-tertiary mb-0">Pune</p>
+                  </div>
+                </div>
+                <div class="top-alert-time">
+                  <p class="fs-10 text-body-tertiary mb-0">01:45 &nbsp;&nbsp; 25/08/2023</p>
+                </div>
+              </li>
+              <li class="d-flex justify-content-between align-items-center">
+                <div class="d-flex align-items-center">
+                  <div class="top-alert-icon action-light-color-bg-5">
+                    <span class="isax isax-setting-2 action-color-text-5"></span>
+                  </div>
+                  <div class="top-alert-content">
+                    <div class="fs-10 fw-semibold text-body-emphasis list-title">Upcoming battery service.</div>
+                    <p class="fs-10 text-body-tertiary mb-0">Rajkot</p>
+                  </div>
+                </div>
+                <div class="top-alert-time">
+                  <p class="fs-10 text-body-tertiary mb-0">01:45 &nbsp;&nbsp; 25/08/2023</p>
+                </div>
+              </li>
+
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex align-items-start justify-content-between">
+              <div>
+                <h5 class="card-title fw-semibold">Upcoming Maintenance</h5>
+                <h6 class="fs-10 text-body-tertiary card-subtitle mb-2">Overview</h6>
+              </div>
+              <a href="javascript:void(0)" routerLink="/services" class="btn-link">View All</a>
+            </div>
+            <div class="timeline-vertical timeline-with-details mt-4">
+              <div class="timeline-item position-relative">
+                <div class="row g-md-3">
+                  <div class="col-12 col-md-auto d-flex">
+                    <div class="timeline-item-date d-flex align-items-center me-md-4">
+                      <p class="fs-10 text-body-tertiary text-opacity-85 text-end mb-0">01:45 &nbsp;&nbsp; 25/08/2023</p>
+                    </div>
+                    <div class="timeline-item-bar position-md-relative me-3 me-md-0">
+                      <div class="bg-primary timeline-icon-ecllipse"></div>
+                      <span class="timeline-bar border-end border-dashed"></span>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="d-flex align-items-center">
+                      <div class="timeline-item-content action-light-color-bg-5">
+                        <span class="isax isax-battery-charging action-color-text-5"></span>
+                      </div>
+                      <div class="top-alert-content">
+                        <div class="fs-10 fw-semibold text-body-emphasis list-title">Asset Name</div>
+                        <p class="fs-10 text-body-tertiary mb-0">Ahmedabad</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="timeline-item position-relative">
+                <div class="row g-md-3">
+                  <div class="col-12 col-md-auto d-flex">
+                    <div class="timeline-item-date d-flex align-items-center me-md-4">
+                      <p class="fs-10 text-body-tertiary text-opacity-85 text-end mb-0">01:45 &nbsp;&nbsp; 25/08/2023</p>
+                    </div>
+                    <div class="timeline-item-bar position-md-relative me-3 me-md-0">
+                      <div class="bg-primary timeline-icon-ecllipse"></div>
+                      <span class="timeline-bar border-end border-dashed"></span>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="d-flex align-items-center">
+                      <div class="timeline-item-content action-light-color-bg-5">
+                        <span class="isax isax-battery-charging action-color-text-5"></span>
+                      </div>
+                      <div class="top-alert-content">
+                        <div class="fs-10 fw-semibold text-body-emphasis list-title">Asset Name</div>
+                        <p class="fs-10 text-body-tertiary mb-0">Ahmedabad</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="timeline-item position-relative">
+                <div class="row g-md-3">
+                  <div class="col-12 col-md-auto d-flex">
+                    <div class="timeline-item-date d-flex align-items-center me-md-4">
+                      <p class="fs-10 text-body-tertiary text-opacity-85 text-end mb-0">01:45 &nbsp;&nbsp; 25/08/2023</p>
+                    </div>
+                    <div class="timeline-item-bar position-md-relative me-3 me-md-0">
+                      <div class="bg-primary timeline-icon-ecllipse"></div>
+                      <span class="timeline-bar border-end border-dashed"></span>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="d-flex align-items-center">
+                      <div class="timeline-item-content action-light-color-bg-5">
+                        <span class="isax isax-battery-charging action-color-text-5"></span>
+                      </div>
+                      <div class="top-alert-content">
+                        <div class="fs-10 fw-semibold text-body-emphasis list-title">Asset Name</div>
+                        <p class="fs-10 text-body-tertiary mb-0">Ahmedabad</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3">
+    <div class="card">
+      <div class="card-body">
+        <div class="d-flex align-items-start justify-content-between">
+          <div>
+            <h5 class="card-title fw-semibold">Top Alerts</h5>
+            <h6 class="fs-10 text-body-tertiary card-subtitle mb-2">Overview</h6>
+          </div>
+          <a href="javascript:void(0)" routerLink="/notifications/alerts"  class="btn-link">View All</a>
+        </div>
+        <ul class="list-group top-alert-list mt-4">
+          <li class="d-flex justify-content-between align-items-center">
+            <div class="top-alert-icon action-light-color-bg-4">
+              <span class="isax isax-danger action-color-text-4"></span>
+            </div>
+            <div class="top-alert-content">
+              <div class="fs-10 fw-semibold text-body-emphasis list-title">Battery overheat</div>
+              <p class="fs-10 text-body-tertiary mb-0">Ahmedabad</p>
+            </div>
+            <div class="top-alert-time">
+              <p class="fs-10 text-body-tertiary mb-0">5m</p>
+            </div>
+          </li>
+          <li class="d-flex justify-content-between align-items-center">
+            <div class="top-alert-icon action-light-color-bg-3">
+              <span class="isax isax-danger action-color-text-3"></span>
+            </div>
+            <div class="top-alert-content">
+              <div class="fs-10 fw-semibold text-body-emphasis list-title">Voltage upper cut off</div>
+              <p class="fs-10 text-body-tertiary mb-0">Pune</p>
+            </div>
+            <div class="top-alert-time">
+              <p class="fs-10 text-body-tertiary mb-0">10m</p>
+            </div>
+          </li>
+          <li class="d-flex justify-content-between align-items-center">
+            <div class="top-alert-icon action-light-color-bg-1">
+              <span class="isax isax-danger action-color-text-1"></span>
+            </div>
+            <div class="top-alert-content">
+              <div class="fs-10 fw-semibold text-body-emphasis list-title">Battery overheat</div>
+              <p class="fs-10 text-body-tertiary mb-0">Rajkot</p>
+            </div>
+            <div class="top-alert-time">
+              <p class="fs-10 text-body-tertiary mb-0">1h</p>
+            </div>
+          </li>
+          <li class="d-flex justify-content-between align-items-center">
+            <div class="top-alert-icon action-light-color-bg-4">
+              <span class="isax isax-danger action-color-text-4"></span>
+            </div>
+            <div class="top-alert-content">
+              <div class="fs-10 fw-semibold text-body-emphasis list-title">Battery overheat</div>
+              <p class="fs-10 text-body-tertiary mb-0">Ahmedabad</p>
+            </div>
+            <div class="top-alert-time">
+              <p class="fs-10 text-body-tertiary mb-0">5m</p>
+            </div>
+          </li>
+          <li class="d-flex justify-content-between align-items-center">
+            <div class="top-alert-icon action-light-color-bg-3">
+              <span class="isax isax-danger action-color-text-3"></span>
+            </div>
+            <div class="top-alert-content">
+              <div class="fs-10 fw-semibold text-body-emphasis list-title">Voltage upper cut off</div>
+              <p class="fs-10 text-body-tertiary mb-0">Pune</p>
+            </div>
+            <div class="top-alert-time">
+              <p class="fs-10 text-body-tertiary mb-0">10m</p>
+            </div>
+          </li>
+          <li class="d-flex justify-content-between align-items-center">
+            <div class="top-alert-icon action-light-color-bg-1">
+              <span class="isax isax-danger action-color-text-1"></span>
+            </div>
+            <div class="top-alert-content">
+              <div class="fs-10 fw-semibold text-body-emphasis list-title">Battery overheat</div>
+              <p class="fs-10 text-body-tertiary mb-0">Rajkot</p>
+            </div>
+            <div class="top-alert-time">
+              <p class="fs-10 text-body-tertiary mb-0">1h</p>
+            </div>
+          </li>
+          <li class="d-flex justify-content-between align-items-center">
+            <div class="top-alert-icon action-light-color-bg-4">
+              <span class="isax isax-danger action-color-text-4"></span>
+            </div>
+            <div class="top-alert-content">
+              <div class="fs-10 fw-semibold text-body-emphasis list-title">Battery overheat</div>
+              <p class="fs-10 text-body-tertiary mb-0">Ahmedabad</p>
+            </div>
+            <div class="top-alert-time">
+              <p class="fs-10 text-body-tertiary mb-0">5m</p>
+            </div>
+          </li>
+          <li class="d-flex justify-content-between align-items-center">
+            <div class="top-alert-icon action-light-color-bg-3">
+              <span class="isax isax-danger action-color-text-3"></span>
+            </div>
+            <div class="top-alert-content">
+              <div class="fs-10 fw-semibold text-body-emphasis list-title">Voltage upper cut off</div>
+              <p class="fs-10 text-body-tertiary mb-0">Pune</p>
+            </div>
+            <div class="top-alert-time">
+              <p class="fs-10 text-body-tertiary mb-0">10m</p>
+            </div>
+          </li>
+          <li class="d-flex justify-content-between align-items-center">
+            <div class="top-alert-icon action-light-color-bg-1">
+              <span class="isax isax-danger action-color-text-1"></span>
+            </div>
+            <div class="top-alert-content">
+              <div class="fs-10 fw-semibold text-body-emphasis list-title">Battery overheat</div>
+              <p class="fs-10 text-body-tertiary mb-0">Rajkot</p>
+            </div>
+            <div class="top-alert-time">
+              <p class="fs-10 text-body-tertiary mb-0">1h</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+

@@ -1,0 +1,28 @@
+.asset-card {
+  .asset-item-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 15px;
+    .isax {
+      font-size: 20px;
+    }
+  }
+  .asset-list {
+    padding-left: 0;
+    margin-bottom: 6px;
+    li {
+      padding: 6px 0;
+      .isax {
+        font-size: 20px;
+        width: 24px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+}
